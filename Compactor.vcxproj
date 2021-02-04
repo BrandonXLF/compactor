@@ -147,6 +147,12 @@
   <ItemGroup>
     <ClCompile Include="Compactor.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Compactor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
