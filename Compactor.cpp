@@ -15,7 +15,7 @@ bool hideWhenEmpty = false;
 NOTIFYICONDATA iconData;
 HICON iconEmpty;
 HICON iconFull;
-SHQUERYRBINFO sqrbi = { sizeof(SHQUERYRBINFO) };
+SHQUERYRBINFO sqrbi = {sizeof(SHQUERYRBINFO)};
 bool isEmpty = true;
 HKEY hKey;
 
@@ -41,7 +41,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
                 case ID_EMPTY_BIN:
                     SHEmptyRecycleBin(NULL, NULL, NULL);
                     break;
-                case ID_EXIT_PROGRAM: 
+                case ID_EXIT_PROGRAM:
                     DestroyWindow(hwnd);
                     break;
                 case ID_OPEN_BIN:
@@ -63,6 +63,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
                     hideWhenEmpty = false;
                     break;
             }
+            break;
         case WM_ICON_NOTIFY:
             switch (lparam) {
                 case WM_LBUTTONUP:
@@ -141,6 +142,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     iconData.uCallbackMessage = WM_ICON_NOTIFY;
     iconData.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE;
     wcscpy_s(iconData.szTip, sizeof(iconData.szTip) / sizeof(WCHAR), TOOLTIP);
+
     if (!hideWhenEmpty || !isEmpty) {
         Shell_NotifyIcon(NIM_ADD, &iconData);
     }
@@ -152,7 +154,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     changeInfo.fRecursive = FALSE;
 
     WindowProc(hwnd, WM_APP, NULL, NULL);
-    SHChangeNotifyRegister(
+
+    ULONG handle = SHChangeNotifyRegister(
         hwnd,
         SHCNRF_ShellLevel,
         SHCNE_CREATE | SHCNE_DELETE | SHCNE_MKDIR | SHCNE_RMDIR | SHCNE_UPDATEDIR | SHCNE_UPDATEIMAGE,
@@ -160,13 +163,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
         1,
         &changeInfo
     );
-
     MSG msg;
 
-    while (GetMessage(&msg, nullptr, 0, 0)) {
+    while (GetMessage(&msg, NULL, NULL, NULL)) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
 
-    return (int)msg.wParam;
+    SHChangeNotifyDeregister(handle);
+
+    return 0;
 }
