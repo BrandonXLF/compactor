@@ -11,8 +11,8 @@ It uses the built in Windows Recycle Bin icon for consistency with the rest of t
   ![Image of the system tray with the Compactor icon visible](images/system-tray.png "The context menu")
 * Toggle to hide the system tray icon when empty
 * Optionally run at startup
-* Right click to open the Recycle Bin
+* Left click to open the Recycle Bin
 * Middle click to empty the Recycle Bin
-* Left click to view the context menu
+* Right click to view the context menu
 
   ![Image of the context menu with Open, Empty Recycle Bin, Properties, Hide when empty, and Exit](images/context-menu.png "The context menu")
