@@ -16,3 +16,7 @@ It uses the built in Windows Recycle Bin icon for consistency with the rest of t
 * Right click to view the context menu
 
   ![Image of the context menu with Open, Empty Recycle Bin, Properties, Hide when empty, and Exit](images/context-menu.png "The context menu")
+  
+## Building
+
+Building AlwaysNote requires Visual Studio and NSIS. When the project a built, a NSIS installer is automatically created.
