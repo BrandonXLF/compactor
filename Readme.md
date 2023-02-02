@@ -1,4 +1,4 @@
-# Compactor
+# Compactor - Recycle Bin Tray Icon
 
 **Compactor** is a Windows application that displays a compact Recycle Bin in the system tray.
 
