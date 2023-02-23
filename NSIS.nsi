@@ -87,6 +87,7 @@ Section "Uninstall"
 	Delete "$DESKTOP\${APP_NAME}.lnk"
 	RMDir $INSTDIR
 	DeleteRegKey SHCTX "${REG_KEY}"
+	DeleteRegKey HKCU "Software\Compactor"
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
