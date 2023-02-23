@@ -115,7 +115,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
         return 0;
     }
 
-    RegCreateKeyEx(HKEY_CURRENT_USER, L"SOFTWARE\\Compactor", 0, KEY_READ | KEY_WRITE, &hKey);
+    RegCreateKeyEx(HKEY_CURRENT_USER, L"SOFTWARE\\Compactor", NULL, NULL, NULL, KEY_READ | KEY_WRITE, NULL, &hKey, NULL);
     hideWhenEmpty = RegQueryValueEx(hKey, L"HideEmpty", NULL, NULL, NULL, NULL) == ERROR_SUCCESS;
 
     HMODULE shell32 = LoadLibrary(L"SHELL32.dll");
