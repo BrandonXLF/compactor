@@ -19,4 +19,4 @@ It uses the built in Windows Recycle Bin icon for consistency with the rest of t
   
 ## Building
 
-Building AlwaysNote requires Visual Studio and NSIS. When the project a built, a NSIS installer is automatically created.
+Building Compactor requires Visual Studio and NSIS. When the project a built, a NSIS installer is automatically created.
