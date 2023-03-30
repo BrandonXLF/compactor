@@ -8,7 +8,7 @@ It uses the built in Windows Recycle Bin icon for consistency with the rest of t
 
 * Adds a Recycle Bin icon to the system tray
 
-  ![Image of the system tray with the Compactor icon visible](images/system-tray.png "The context menu")
+  ![Image of the system tray with the Compactor icon visible](images/system-tray.png "The system tray")
 * Toggle to hide the system tray icon when empty
 * Optionally run at startup
 * Left click to open the Recycle Bin
